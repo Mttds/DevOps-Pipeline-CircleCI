@@ -60,6 +60,7 @@ router.post('/',
     async (req: Request, res: Response) => {
       const caption = req.body.caption;
       const fileName = req.body.url; // same as S3 key name
+      const currentTime = new Date();
 
       if (!caption) {
         return res.status(400).send({message: 'Caption is required or malformed.'});
@@ -71,7 +72,7 @@ router.post('/',
 
       const item = await new FeedItem({
         caption: caption,
-        url: fileName,
+        url: fileName
       });
 
       const savedItem = await item.save();
