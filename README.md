@@ -41,6 +41,18 @@ To check the connection from postgresql cli (psql) you can run: `psql --host=exa
 
 You can also check: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ConnectToPostgreSQLInstance.html#USER_ConnectToPostgreSQLInstance.psql
 
+For the udagram-api application you need to setup the following environment variables (or variables in an .env file in the udagram-api root directory):
+
+* POSTGRES_USERNAME=username
+* POSTGRES_PASSWORD=password
+* POSTGRES_DB=dbname
+* PORT=port
+* POSTGRES_HOST=hostname
+
+In AWS ElasticBean server they can be configured in the Environment/Configuration/Software section under Environment properties.
+
+![image info](./doc/img/aws-eb-env-variables.png)
+
 ### Elastic Beanstalk application server (running Node.js)
 
 You should configure the API keys, passwords, etc as environment variables for the application server using the configuration provided by elastic beanstalk.
@@ -103,9 +115,11 @@ Provision the necessary AWS services needed for running the application:
 
 ### Infrastructure
 
-![image info](./doc/img/infrastructure-diagram.png)
+[Infrastructure Documentation](./doc/Infrastructure/README.md)
 
 ### DevOps Pipeline
+
+[CICD Pipeline](./doc/Pipeline/README.md)
 
 ## Testing
 
