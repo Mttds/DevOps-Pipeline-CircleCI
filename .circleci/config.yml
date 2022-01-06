@@ -8,7 +8,9 @@ jobs:
     docker:
       - image: "cimg/base:stable"
     steps:
-      - node/install
+      - node/install:
+          node-version: '14.18.0'
+      - run: node --version
       - checkout
       - aws-cli/setup
       - run:
