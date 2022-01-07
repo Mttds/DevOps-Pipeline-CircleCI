@@ -20,9 +20,14 @@ The steps for the Pipleline are:
 
 * setup of a docker image (container)
 * installation of a node.js environment
-* installation of the aws cli using the provided Environment Variables for access
+* installation of the aws cli/eb cli using the provided Environment Variables for access
 * setup of the frontend dependencies with the install script
 * setup of the backend dependencies with the install script
 * build of the frontend with the build script
 * build of the backend with the build script
+* test of the frontend with the test script
+* test of the backend with the test script
+* deployment of the backend application with the eb-cli to the elastic beanstalk environment
 * deployment of the frontend public files with the aws-cli to the configured S3 bucket
+
+![image info](../img/cicd-pipeline.png)
