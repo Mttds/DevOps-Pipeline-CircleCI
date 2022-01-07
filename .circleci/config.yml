@@ -4,10 +4,7 @@ orbs:
   node: circleci/node@4.1.0
   aws-cli: circleci/aws-cli@2.0.6
 jobs:
-  build:
-    filters:
-      branches:
-        only: master
+  build-and-deploy:
     docker:
       - image: "cimg/base:stable"
     steps:
@@ -16,7 +13,7 @@ jobs:
       - run: node --version
       - checkout
       - aws-cli/setup
-      - eb/setup
+      - aws-elastic-beanstalk/setup
       - run:
           name: hello
           command: |
@@ -45,3 +42,11 @@ jobs:
           name: Front-End Deploy
           command: |
             npm run frontend:deploy
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build-and-deploy:   
+          filters:
+            branches:
+              only: master
